@@ -1,0 +1,50 @@
+{
+    "ATTACK_RANSOMWARE": {
+        "name": "Ransomware & Destructive Malware Infection",
+        "category": "Malware",
+        "base_severity": 0.95,
+        "description": "Malicious code executing unauthorized encryption of user files and purging local backups to demand payment."
+    },
+    "ATTACK_CREDENTIAL_HARVESTING": {
+        "name": "Brute-Force & Credential Stuffing Campaign",
+        "category": "Authentication",
+        "base_severity": 0.70,
+        "description": "Automated authentication attempts aimed at compromising valid account credentials."
+    },
+    "ATTACK_PHISHING_COMPROMISE": {
+        "name": "Phishing & Credential Harvester Link",
+        "category": "Social Engineering",
+        "base_severity": 0.75,
+        "description": "Social engineering email deceiving users into providing corporate credentials or executing droppers."
+    },
+    "ATTACK_C2_EXFILTRATION": {
+        "name": "Command & Control (C2) / Data Exfiltration",
+        "category": "Network / APT",
+        "base_severity": 0.90,
+        "description": "Established covert communication channel transferring sensitive corporate data to external servers."
+    },
+    "ATTACK_SQL_INJECTION": {
+        "name": "SQL Injection (SQLi) Exploit",
+        "category": "Web Application",
+        "base_severity": 0.85,
+        "description": "Exploitation of web input vulnerabilities to execute unauthorized database queries."
+    },
+    "ATTACK_PRIVILEGE_ESCALATION": {
+        "name": "LSASS Password Dumping & Privilege Escalation",
+        "category": "Access & Privileges",
+        "base_severity": 0.85,
+        "description": "Adversary abusing administrative privileges or LSASS memory reading to harvest cleartext keys/hashes."
+    },
+    "ATTACK_CRYPTOMINING": {
+        "name": "Unauthorized Cryptojacking / Mining Malware",
+        "category": "Resource Misuse",
+        "base_severity": 0.45,
+        "description": "Unauthorized deployment of cryptocurrency miners consuming CPU/GPU infrastructure."
+    },
+    "ATTACK_INSIDER_EXFIL": {
+        "name": "Malicious Insider Data Exfiltration",
+        "category": "Insider Threat",
+        "base_severity": 0.80,
+        "description": "Authorized employee abusing valid permissions to collect and exfiltrate proprietary data."
+    }
+}

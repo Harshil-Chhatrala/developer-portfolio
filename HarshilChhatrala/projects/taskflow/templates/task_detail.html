@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ task.title }} - TaskFlow{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">{{ task.title }}</h1>
+    <p class="page-subtitle">Created {{ task.created_at.strftime('%b %d, %Y') }}</p>
+  </div>
+  <div class="d-flex gap-2">
+    <a href="{{ url_for('tasks.edit_task', task_id=task.id) }}" class="btn btn-outline-secondary">
+      <i class="fa-solid fa-pen"></i> Edit
+    </a>
+    <form method="POST" action="{{ url_for('tasks.delete_task', task_id=task.id) }}" class="confirm-delete-form">
+      <button type="submit" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+    </form>
+  </div>
+</div>
+
+<div class="card soft-card">
+  <div class="task-meta mb-3">
+    <span class="priority-badge priority-{{ task.priority }}">{{ task.priority }}</span>
+    <span class="badge-status status-{{ task.status }}">{{ task.status }}</span>
+    {% if task.project %}
+      <span class="project-chip" style="background:{{ task.project.color }}22; color:{{ task.project.color }}">
+        <span class="color-dot" style="background:{{ task.project.color }}"></span>{{ task.project.name }}
+      </span>
+    {% endif %}
+    {% if task.due_date %}
+      <span class="due-chip {{ 'text-danger' if task.is_overdue() }}">
+        <i class="fa-regular fa-calendar"></i> Due {{ task.due_date.strftime('%b %d, %Y') }}
+      </span>
+    {% endif %}
+  </div>
+
+  <h5>Description</h5>
+  <p class="text-muted">{{ task.description or "No description provided." }}</p>
+
+  <h5>Category</h5>
+  <p class="text-muted">{{ task.category }}</p>
+
+  <button class="btn btn-primary-gradient toggle-complete" data-id="{{ task.id }}">
+    {% if task.status == 'completed' %}
+      <i class="fa-solid fa-rotate-left"></i> Move Back to Pending
+    {% else %}
+      <i class="fa-solid fa-check"></i> Mark as Complete
+    {% endif %}
+  </button>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+{% endblock %}

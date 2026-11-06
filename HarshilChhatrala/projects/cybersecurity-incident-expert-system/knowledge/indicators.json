@@ -1,0 +1,125 @@
+{
+    "categories": {
+        "Authentication": [
+            {
+                "id": "IND_AUTH_MULTIPLE_FAILED_LOGINS",
+                "name": "Repeated Failed Login Attempts",
+                "description": "High volume of failed authentication attempts within a short timeframe."
+            },
+            {
+                "id": "IND_AUTH_UNUSUAL_LOCATION_OR_TIME",
+                "name": "Impossible Travel / Anomaly Location",
+                "description": "Successful user login from geographically impossible locations or anomalous hours."
+            },
+            {
+                "id": "IND_AUTH_MFA_FATIGUE_PUSH",
+                "name": "MFA Spamming / Push Fatigue",
+                "description": "Multiple sequential Multi-Factor Authentication requests pushed to a user."
+            }
+        ],
+        "Network": [
+            {
+                "id": "IND_NET_HIGH_OUTBOUND_TRAFFIC",
+                "name": "Abnormal Outbound Data Volume",
+                "description": "Large volume of encrypted or unknown protocol egress traffic."
+            },
+            {
+                "id": "IND_NET_PORT_SCANNING_DETECTED",
+                "name": "Internal Network / Port Reconnaissance",
+                "description": "Sequential connections across internal IP ranges or port numbers."
+            },
+            {
+                "id": "IND_NET_DNS_TUNNELING_PATTERN",
+                "name": "High Volume of Subdomain DNS Queries",
+                "description": "Anomalous DNS query volume containing base64/encoded domain pre-pendings."
+            },
+            {
+                "id": "IND_NET_SUSPICIOUS_C2_IP",
+                "name": "Connection to Known C2 / TOR Node",
+                "description": "Egress traffic directed to flagged Threat Intel IPs or anonymizing networks."
+            }
+        ],
+        "System": [
+            {
+                "id": "IND_SYS_HIGH_CPU_GPU_USAGE",
+                "name": "Sustained Near-100% CPU/GPU Spike",
+                "description": "Unexplained continuous hardware utilization by unknown background tasks."
+            },
+            {
+                "id": "IND_SYS_CMD_POWERSHELL_ENCODED",
+                "name": "Encoded PowerShell / Cmd Execution",
+                "description": "Process execution involving obfuscated CLI arguments or base64 payloads."
+            },
+            {
+                "id": "IND_SYS_SHADOW_COPIES_DELETED",
+                "name": "Volume Shadow Copies Purged",
+                "description": "Commands executed to erase backup shadow copies (e.g., vssadmin delete shadows)."
+            }
+        ],
+        "Filesystem": [
+            {
+                "id": "IND_FILE_EXTENSION_CHANGED",
+                "name": "Rapid Bulk File Renaming / Extensions",
+                "description": "Files rapidly converted to known ransomware extension formats."
+            },
+            {
+                "id": "IND_RANSOM_NOTE_FOUND",
+                "name": "Ransom Note Dropped in Directories",
+                "description": "Text or HTML files containing payment demands created across directories."
+            },
+            {
+                "id": "IND_FILE_SENSITIVE_ACCESSED_MASS",
+                "name": "Mass Access to Confidential Repositories",
+                "description": "Unusual volume of file read operations on restricted shares or drives."
+            }
+        ],
+        "Email": [
+            {
+                "id": "IND_EMAIL_SUSPICIOUS_LINK_CLICK",
+                "name": "User Clicked Link in External Email",
+                "description": "Egress telemetry confirms navigation to link received from unverified sender."
+            },
+            {
+                "id": "IND_EMAIL_EXECUTIVE_IMPERSONATION",
+                "name": "Display Name Spoofing / Domain Misspelling",
+                "description": "Email headers show typosquatting or altered reply-to fields impersonating VIPs."
+            }
+        ],
+        "Web Application": [
+            {
+                "id": "IND_WEB_SQL_SYNTAX_IN_LOGS",
+                "name": "SQL Injection Strings in Request URIs",
+                "description": "HTTP GET/POST logs containing UNION, SELECT, OR 1=1 or sleep commands."
+            },
+            {
+                "id": "IND_WEB_XSS_SCRIPT_INJECTED",
+                "name": "Script Tags / Handlers in Web Inputs",
+                "description": "Parameters containing <script>, alert(), or onerror= JS execution syntax."
+            }
+        ],
+        "User Activity": [
+            {
+                "id": "IND_USER_OFF_HOURS_DATA_TRANSFER",
+                "name": "Off-Hours Mass File Download/Export",
+                "description": "Employee account downloading customer DBs or repos outside shift hours."
+            },
+            {
+                "id": "IND_USER_SECURITY_SOFTWARE_DISABLED",
+                "name": "Local Antivirus / EDR Terminated",
+                "description": "Security agent service stopped or uninstalled manually."
+            }
+        ],
+        "Privilege & Access": [
+            {
+                "id": "IND_PRIV_NEW_ADMIN_CREATED",
+                "name": "Unscheduled Administrator Account Creation",
+                "description": "New privileged user added to domain or local Administrators group."
+            },
+            {
+                "id": "IND_PRIV_LSASS_MEMORY_DUMP",
+                "name": "LSASS Memory Access / Mimikatz Signature",
+                "description": "Process attempting read/dump access on lsass.exe process memory."
+            }
+        ]
+    }
+}

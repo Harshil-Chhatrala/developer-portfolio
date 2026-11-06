@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Projects - TaskFlow{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-subtitle">Organize your tasks into projects.</p>
+  </div>
+  <a href="{{ url_for('projects.new_project') }}" class="btn btn-primary-gradient">
+    <i class="fa-solid fa-plus"></i> New Project
+  </a>
+</div>
+
+<div class="project-grid">
+  {% for project in projects %}
+  <div class="card soft-card project-card" style="border-top: 4px solid {{ project.color }}">
+    <div class="d-flex justify-content-between align-items-start">
+      <h4><a href="{{ url_for('projects.project_detail', project_id=project.id) }}">{{ project.name }}</a></h4>
+      <div class="task-actions">
+        <a href="{{ url_for('projects.edit_project', project_id=project.id) }}" class="icon-btn-sm"><i class="fa-solid fa-pen"></i></a>
+        <form method="POST" action="{{ url_for('projects.delete_project', project_id=project.id) }}" class="confirm-delete-form d-inline">
+          <button type="submit" class="icon-btn-sm text-danger"><i class="fa-solid fa-trash"></i></button>
+        </form>
+      </div>
+    </div>
+    <p class="text-muted small">{{ project.description or "No description" }}</p>
+    <div class="progress custom-progress mb-2">
+      <div class="progress-bar" style="width: {{ project.progress() }}%; background:{{ project.color }};">{{ project.progress() }}%</div>
+    </div>
+    <span class="text-muted small">{{ project.tasks|length }} task(s)</span>
+  </div>
+  {% else %}
+  <div class="empty-state full-width">
+    <i class="fa-regular fa-folder-open"></i>
+    <p>No projects yet. <a href="{{ url_for('projects.new_project') }}">Create your first project</a></p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+{% endblock %}

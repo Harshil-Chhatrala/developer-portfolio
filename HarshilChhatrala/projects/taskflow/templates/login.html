@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Log In - TaskFlow{% endblock %}
+{% block auth_content %}
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <i class="fa-solid fa-diagram-project"></i>
+      <span>TaskFlow</span>
+    </div>
+    <h2 class="auth-title">Welcome back</h2>
+    <p class="auth-subtitle">Log in to manage your tasks and projects.</p>
+
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), placeholder="you@example.com") }}
+        {% for error in form.email.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-control" + (" is-invalid" if form.password.errors else ""), placeholder="••••••••") }}
+        {% for error in form.password.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+      </div>
+      <div class="form-check mb-3">
+        {{ form.remember(class="form-check-input") }}
+        {{ form.remember.label(class="form-check-label") }}
+      </div>
+      {{ form.submit(class="btn btn-primary-gradient w-100") }}
+    </form>
+
+    <p class="auth-footer-text">Don't have an account? <a href="{{ url_for('auth.register') }}">Sign up</a></p>
+  </div>
+</div>
+{% endblock %}

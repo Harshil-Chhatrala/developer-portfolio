@@ -1,0 +1,221 @@
+[
+    {
+        "rule_id": "RULE_RANSOM_01",
+        "name": "Ransomware Primary Signature",
+        "priority": 10,
+        "conditions": {
+            "all_of": [
+                "IND_FILE_EXTENSION_CHANGED",
+                "IND_RANSOM_NOTE_FOUND"
+            ],
+            "any_of": [
+                "IND_SYS_SHADOW_COPIES_DELETED",
+                "IND_SYS_CMD_POWERSHELL_ENCODED"
+            ],
+            "none_of": []
+        },
+        "conclusions": [
+            {
+                "type": "ASSERT_FACT",
+                "fact": "FACT_HIGH_RANSOMWARE_LIKELIHOOD"
+            },
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_RANSOMWARE",
+                "weight": 0.90
+            }
+        ],
+        "explanation": "Mass file renaming occurring simultaneously with ransom note creation and administrative backup destruction indicates active ransomware execution."
+    },
+    {
+        "rule_id": "RULE_RANSOM_02",
+        "name": "Ransomware Secondary Indicators",
+        "priority": 5,
+        "conditions": {
+            "all_of": [
+                "IND_FILE_EXTENSION_CHANGED"
+            ],
+            "any_of": [
+                "IND_USER_SECURITY_SOFTWARE_DISABLED",
+                "IND_SYS_CMD_POWERSHELL_ENCODED"
+            ],
+            "none_of": [
+                "IND_RANSOM_NOTE_FOUND"
+            ]
+        },
+        "conclusions": [
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_RANSOMWARE",
+                "weight": 0.45
+            }
+        ],
+        "explanation": "File extensions changing rapidly combined with obfuscated shell activity points toward potential malware/ransomware behavior."
+    },
+    {
+        "rule_id": "RULE_CRED_BRUTE_01",
+        "name": "Automated Brute Force Pattern",
+        "priority": 8,
+        "conditions": {
+            "all_of": [
+                "IND_AUTH_MULTIPLE_FAILED_LOGINS"
+            ],
+            "any_of": [
+                "IND_AUTH_UNUSUAL_LOCATION_OR_TIME",
+                "IND_AUTH_MFA_FATIGUE_PUSH"
+            ],
+            "none_of": []
+        },
+        "conclusions": [
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_CREDENTIAL_HARVESTING",
+                "weight": 0.75
+            }
+        ],
+        "explanation": "Repeated login failures coupled with anomalous location or MFA spamming strongly matches an automated credential harvesting attempt."
+    },
+    {
+        "rule_id": "RULE_PHISH_01",
+        "name": "Spear Phishing Compromise",
+        "priority": 9,
+        "conditions": {
+            "all_of": [
+                "IND_EMAIL_SUSPICIOUS_LINK_CLICK"
+            ],
+            "any_of": [
+                "IND_EMAIL_EXECUTIVE_IMPERSONATION",
+                "IND_AUTH_UNUSUAL_LOCATION_OR_TIME"
+            ],
+            "none_of": []
+        },
+        "conclusions": [
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_PHISHING_COMPROMISE",
+                "weight": 0.80
+            }
+        ],
+        "explanation": "Interaction with external links inside spoofed executive messages followed by abnormal authentication points to successful phishing compromise."
+    },
+    {
+        "rule_id": "RULE_C2_01",
+        "name": "Command and Control Channel",
+        "priority": 9,
+        "conditions": {
+            "all_of": [
+                "IND_NET_HIGH_OUTBOUND_TRAFFIC"
+            ],
+            "any_of": [
+                "IND_NET_SUSPICIOUS_C2_IP",
+                "IND_NET_DNS_TUNNELING_PATTERN"
+            ],
+            "none_of": []
+        },
+        "conclusions": [
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_C2_EXFILTRATION",
+                "weight": 0.85
+            }
+        ],
+        "explanation": "Large outbound network volume directed at known suspect infrastructure or via encoded DNS queries confirms C2 exfiltration."
+    },
+    {
+        "rule_id": "RULE_SQLI_01",
+        "name": "SQL Injection Attempt",
+        "priority": 10,
+        "conditions": {
+            "all_of": [
+                "IND_WEB_SQL_SYNTAX_IN_LOGS"
+            ],
+            "any_of": [
+                "IND_NET_HIGH_OUTBOUND_TRAFFIC",
+                "IND_FILE_SENSITIVE_ACCESSED_MASS"
+            ],
+            "none_of": []
+        },
+        "conclusions": [
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_SQL_INJECTION",
+                "weight": 0.88
+            }
+        ],
+        "explanation": "Presence of SQL control syntax in web logs alongside high egress traffic indicates database exploitation and data extraction."
+    },
+    {
+        "rule_id": "RULE_PRIV_ELEV_01",
+        "name": "Credential Dumping Escalation",
+        "priority": 9,
+        "conditions": {
+            "all_of": [
+                "IND_PRIV_LSASS_MEMORY_DUMP"
+            ],
+            "any_of": [
+                "IND_PRIV_NEW_ADMIN_CREATED",
+                "IND_USER_SECURITY_SOFTWARE_DISABLED"
+            ],
+            "none_of": []
+        },
+        "conclusions": [
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_PRIVILEGE_ESCALATION",
+                "weight": 0.90
+            }
+        ],
+        "explanation": "Reading LSASS process memory alongside unauthorized administrator creation or security control termination indicates privilege escalation."
+    },
+    {
+        "rule_id": "RULE_MINER_01",
+        "name": "Cryptojacking Activity",
+        "priority": 6,
+        "conditions": {
+            "all_of": [
+                "IND_SYS_HIGH_CPU_GPU_USAGE"
+            ],
+            "any_of": [
+                "IND_NET_SUSPICIOUS_C2_IP",
+                "IND_SYS_CMD_POWERSHELL_ENCODED"
+            ],
+            "none_of": [
+                "IND_FILE_EXTENSION_CHANGED"
+            ]
+        },
+        "conclusions": [
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_CRYPTOMINING",
+                "weight": 0.70
+            }
+        ],
+        "explanation": "High continuous CPU/GPU usage accompanied by outbound socket connections without ransomware file changes indicates cryptomining."
+    },
+    {
+        "rule_id": "RULE_INSIDER_01",
+        "name": "Insider Threat Exfiltration",
+        "priority": 7,
+        "conditions": {
+            "all_of": [
+                "IND_USER_OFF_HOURS_DATA_TRANSFER",
+                "IND_FILE_SENSITIVE_ACCESSED_MASS"
+            ],
+            "any_of": [
+                "IND_NET_HIGH_OUTBOUND_TRAFFIC"
+            ],
+            "none_of": [
+                "IND_SYS_CMD_POWERSHELL_ENCODED",
+                "IND_WEB_SQL_SYNTAX_IN_LOGS"
+            ]
+        },
+        "conclusions": [
+            {
+                "type": "HYPOTHESIS_EVIDENCE",
+                "attack_id": "ATTACK_INSIDER_EXFIL",
+                "weight": 0.80
+            }
+        ],
+        "explanation": "Mass sensitive file reads and off-hours transfers by authenticated users without software exploit artifacts points to insider threat."
+    }
+]

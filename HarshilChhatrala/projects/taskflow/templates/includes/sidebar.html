@@ -1,0 +1,40 @@
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <i class="fa-solid fa-diagram-project brand-icon"></i>
+    <span class="brand-text">TaskFlow</span>
+  </div>
+
+  <ul class="sidebar-nav">
+    <li>
+      <a href="{{ url_for('dashboard.index') }}" class="{{ 'active' if request.endpoint == 'dashboard.index' }}">
+        <i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ url_for('tasks.task_list') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('tasks.') }}">
+        <i class="fa-solid fa-list-check"></i> <span>Tasks</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ url_for('projects.project_list') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('projects.') }}">
+        <i class="fa-solid fa-folder-open"></i> <span>Projects</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ url_for('profile.view_profile') }}" class="{{ 'active' if request.endpoint == 'profile.view_profile' }}">
+        <i class="fa-solid fa-user"></i> <span>Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ url_for('profile.settings') }}" class="{{ 'active' if request.endpoint == 'profile.settings' }}">
+        <i class="fa-solid fa-gear"></i> <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <a href="{{ url_for('auth.logout') }}" class="logout-link">
+      <i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span>
+    </a>
+  </div>
+</nav>

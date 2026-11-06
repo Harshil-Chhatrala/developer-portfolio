@@ -1,0 +1,16 @@
+id,brand,model,ram_gb,storage_gb,storage_type,processor,price_inr,screen_size_inch,gpu,in_stock
+1,Dell,Inspiron 15,8,512,SSD,Intel i5,52500,15.6,Intel Iris Xe,True
+2,HP,Pavilion x360,16,512,SSD,Intel i7,74900,14.0,Intel Iris Xe,True
+3,Lenovo,Legion 5 Pro,16,1024,SSD,Ryzen 7,118000,16.0,RTX 4060,True
+4,ASUS,ROG Strix G16,32,1024,SSD,Ryzen 9,164900,16.0,RTX 4070,True
+5,Apple,MacBook Air M1,8,256,SSD,Apple M1,79900,13.3,Apple 7-Core,True
+6,Apple,MacBook Pro M2,16,512,SSD,Apple M2,149900,14.2,Apple 10-Core,True
+7,Dell,XPS 13 OLED,16,1024,SSD,Intel i7,139900,13.4,Intel Iris Xe,False
+8,ASUS,Vivobook 14,8,512,SSD,Ryzen 5,44500,14.0,AMD Radeon,True
+9,Lenovo,ThinkPad E14,16,512,SSD,Intel i5,68000,14.0,Intel UHD,True
+10,HP,Envy x360,16,512,SSD,Ryzen 7,86000,13.3,AMD Radeon,True
+11,Acer,Nitro 5,8,512,SSD,Intel i5,62000,15.6,RTX 3050,True
+12,MSI,Cyborg 15,16,512,SSD,Intel i7,89000,15.6,RTX 4050,True
+13,Dell,Inspiron 14,8,512,SSD,Intel i3,39900,14.0,Intel UHD,True
+14,HP,Victus 16,16,1024,SSD,Ryzen 5,71000,16.1,RTX 2050,True
+15,Apple,MacBook Air M3,16,512,SSD,Apple M3,114900,13.6,Apple 10-Core,True

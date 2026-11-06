@@ -1,0 +1,51 @@
+{
+    "ATTACK_RANSOMWARE": [
+        "Isolate infected hosts immediately by disconnecting network cables and revoking Wi-Fi access.",
+        "Do NOT reboot or power down the machine if volatile RAM forensics are required.",
+        "Verify volume shadow copy integrity on uninfected network domain controllers.",
+        "Block identified C2 IP addresses and file hashes at the perimeter firewall/EDR.",
+        "Initiate system restore from offline, air-gapped backup infrastructure."
+    ],
+    "ATTACK_CREDENTIAL_HARVESTING": [
+        "Force immediate password reset and invalidate all active session tokens for affected accounts.",
+        "Enforce FIDO2 / Hardware MFA keys across external access gateways.",
+        "Implement rate-limiting and IP throttling on public authentication endpoints.",
+        "Inspect authentication logs for successful logins originating from suspicious IPs during the event timeframe."
+    ],
+    "ATTACK_PHISHING_COMPROMISE": [
+        "Purge malicious phishing email message IDs from all organizational mailboxes via API.",
+        "Reset credentials for any user who clicked the link or submitted web forms.",
+        "Add malicious domain names and URL parameters to perimeter DNS sinkhole filters.",
+        "Conduct immediate security awareness triage for affected operational units."
+    ],
+    "ATTACK_C2_EXFILTRATION": [
+        "Block outbound communication to destination C2 IP addresses/domains across perimeter firewalls.",
+        "Isolate compromised host and perform full RAM and network socket capture.",
+        "Revoke service accounts associated with the compromised process tree.",
+        "Inspect proxy logs to quantify total volume of exfiltrated data payload."
+    ],
+    "ATTACK_SQL_INJECTION": [
+        "Apply Web Application Firewall (WAF) rules blocking SQL syntax parameters immediately.",
+        "Sanitize all web input vectors using parameterized queries and prepared statements.",
+        "Audit database access logs to check if confidential tables were queried or altered.",
+        "Apply principle of least privilege to web database service user accounts."
+    ],
+    "ATTACK_PRIVILEGE_ESCALATION": [
+        "Enable Credential Guard on Windows endpoints to protect LSASS process memory.",
+        "Rotate credentials for all Domain Admin and Enterprise Admin accounts immediately.",
+        "Inspect Active Directory logs for unauthorized account creations or group privilege modifications.",
+        "Terminate unauthorized active administrative sessions across enterprise hosts."
+    ],
+    "ATTACK_CRYPTOMINING": [
+        "Identify and kill unauthorized miner process IDs via EDR/Host management tools.",
+        "Inspect task scheduler and cron jobs for persistent installation scripts.",
+        "Block cryptocurrency mining pool domain names and stratum ports at perimeter.",
+        "Review software deployment logs to identify how binary was introduced."
+    ],
+    "ATTACK_INSIDER_EXFIL": [
+        "Suspend user account privileges and revoke VPN / cloud application access.",
+        "Place legal hold on employee computer workstation, email mailbox, and cloud storage.",
+        "Audit Security Information and Event Management (SIEM) logs for all access history over past 90 days.",
+        "Notify corporate legal, HR, and compliance leadership."
+    ]
+}

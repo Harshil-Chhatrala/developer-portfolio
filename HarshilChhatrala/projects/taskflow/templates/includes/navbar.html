@@ -1,0 +1,32 @@
+<header class="topbar">
+  <button id="sidebarToggle" class="icon-btn d-lg-none">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <div class="search-wrapper">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" id="globalSearch" class="global-search" placeholder="Search tasks, projects, priorities...">
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <div class="topbar-right">
+    <button id="themeToggle" class="icon-btn" title="Toggle dark mode">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <a href="{{ url_for('tasks.new_task') }}" class="btn btn-primary-gradient btn-sm new-task-btn">
+      <i class="fa-solid fa-plus"></i> New Task
+    </a>
+    <div class="dropdown">
+      <a class="user-avatar-link" href="#" data-bs-toggle="dropdown">
+        <img src="{{ url_for('static', filename='uploads/' + current_user.profile_picture) if current_user.profile_picture != 'default.png' else url_for('static', filename='img/default-avatar.svg') }}"
+             class="user-avatar" alt="avatar" onerror="this.src='{{ url_for('static', filename='img/default-avatar.svg') }}'">
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="{{ url_for('profile.view_profile') }}"><i class="fa-solid fa-user me-2"></i>Profile</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('profile.settings') }}"><i class="fa-solid fa-gear me-2"></i>Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="{{ url_for('auth.logout') }}"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ project.name }} - TaskFlow{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">
+      <span class="color-dot" style="background:{{ project.color }}"></span> {{ project.name }}
+    </h1>
+    <p class="page-subtitle">{{ project.description or "No description" }}</p>
+  </div>
+  <a href="{{ url_for('tasks.new_task') }}" class="btn btn-primary-gradient">
+    <i class="fa-solid fa-plus"></i> Add Task
+  </a>
+</div>
+
+<div class="card soft-card mb-4">
+  <h3 class="card-heading">Progress</h3>
+  <div class="progress custom-progress">
+    <div class="progress-bar" style="width: {{ project.progress() }}%; background:{{ project.color }};">{{ project.progress() }}%</div>
+  </div>
+</div>
+
+<div class="task-grid">
+  {% for task in project.tasks %}
+  <div class="task-card {{ 'task-overdue' if task.is_overdue() }}" data-task-id="{{ task.id }}">
+    <div class="task-card-top">
+      <span class="priority-badge priority-{{ task.priority }}">{{ task.priority }}</span>
+      <div class="task-actions">
+        <button class="icon-btn-sm toggle-complete" data-id="{{ task.id }}"><i class="fa-solid {{ 'fa-rotate-left' if task.status == 'completed' else 'fa-check' }}"></i></button>
+        <a href="{{ url_for('tasks.edit_task', task_id=task.id) }}" class="icon-btn-sm"><i class="fa-solid fa-pen"></i></a>
+        <button class="icon-btn-sm delete-task text-danger" data-id="{{ task.id }}"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>
+    <h4 class="task-title {{ 'text-decoration-line-through' if task.status == 'completed' }}">
+      <a href="{{ url_for('tasks.task_detail', task_id=task.id) }}">{{ task.title }}</a>
+    </h4>
+    <div class="task-meta">
+      {% if task.due_date %}<span class="due-chip {{ 'text-danger' if task.is_overdue() }}"><i class="fa-regular fa-calendar"></i> {{ task.due_date.strftime('%b %d') }}</span>{% endif %}
+      <span class="badge-status status-{{ task.status }}">{{ task.status }}</span>
+    </div>
+  </div>
+  {% else %}
+  <div class="empty-state full-width">
+    <i class="fa-regular fa-clipboard"></i>
+    <p>No tasks in this project yet.</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+{% endblock %}
