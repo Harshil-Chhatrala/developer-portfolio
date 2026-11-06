@@ -18,17 +18,17 @@ Hi, I'm **Harshil B Chhatrala**, a Computer Engineering student interested in Py
 | Project | Summary | Main technologies |
 |---|---|---|
 | [TaskFlow](HarshilChhatrala/projects/taskflow) | Flask task and project management web application | Python, Flask, SQLite, Flask-Login, SQLAlchemy |
-| [MyGit](projects/mygit) | Git-inspired version-control implementation | Python, file handling, hashing, CLI |
-| [Cybersecurity Incident Expert System](projects/cybersecurity-incident-expert-system) | Rule-based incident assessment using a forward-chaining inference engine | Python, Streamlit, SQLite, JSON |
-| [Banking Transaction Security Pipeline](projects/banking-transaction-security) | Sender-to-receiver multi-layer cryptographic pipeline | Python, AES, RSA, SHA-256, digital signatures |
-| [Stock Volatility Prediction](projects/stock-volatility-prediction) | Machine-learning workflow for volatility-regime prediction | Python, pandas, scikit-learn, Jupyter, yfinance |
-| [Traffic Pulse](projects/traffic-pulse) | Image-based vehicle counting and proportional green-time simulation | Python, OpenCV, NumPy, SciPy, Jupyter |
-| [MiniLang Compiler](projects/mini-language-compiler) | Recursive-descent compiler pipeline with TAC, optimization, bytecode, and VM | Python |
-| [Python Chatbot](projects/python-chatbot) | Interactive laptop/product recommendation chatbot | Python, CSV |
+| [MyGit](HarshilChhatrala/projects/mygit) | Git-inspired version-control implementation | Python, file handling, hashing, CLI |
+| [Cybersecurity Incident Expert System](HarshilChhatrala/projects/cybersecurity-incident-expert-system) | Rule-based incident assessment using a forward-chaining inference engine | Python, Streamlit, SQLite, JSON |
+| [Banking Transaction Security Pipeline](HarshilChhatrala/projects/banking-transaction-security) | Sender-to-receiver multi-layer cryptographic pipeline | Python, AES, RSA, SHA-256, digital signatures |
+| [Stock Volatility Prediction](HarshilChhatrala/projects/stock-volatility-prediction) | Machine-learning workflow for volatility-regime prediction | Python, pandas, scikit-learn, Jupyter, yfinance |
+| [Traffic Pulse](HarshilChhatrala/projects/traffic-pulse) | Image-based vehicle counting and proportional green-time simulation | Python, OpenCV, NumPy, SciPy, Jupyter |
+| [MiniLang Compiler](HarshilChhatrala/projects/mini-language-compiler) | Recursive-descent compiler pipeline with TAC, optimization, bytecode, and VM | Python |
+| [Python Chatbot](HarshilChhatrala/projects/python-chatbot) | Interactive laptop/product recommendation chatbot | Python, CSV |
 
 ## Internship Work
 
-See [INTERNSHIP.md](INTERNSHIP.md) for the 15-day Python Developer internship summary. Add the organization name, dates, and factual responsibilities before publishing.
+See [INTERNSHIP.md](HarshilChhatrala/INTERNSHIP.md) for the 15-day Python Developer internship summary. Add the organization name, dates, and factual responsibilities before publishing.
 
 ## Repository Structure
 
