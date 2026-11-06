@@ -17,7 +17,7 @@ Hi, I'm **Harshil B Chhatrala**, a Computer Engineering student interested in Py
 
 | Project | Summary | Main technologies |
 |---|---|---|
-| [TaskFlow](projects/taskflow) | Flask task and project management web application | Python, Flask, SQLite, Flask-Login, SQLAlchemy |
+| [TaskFlow](HarshilChhatrala/projects/taskflow) | Flask task and project management web application | Python, Flask, SQLite, Flask-Login, SQLAlchemy |
 | [MyGit](projects/mygit) | Git-inspired version-control implementation | Python, file handling, hashing, CLI |
 | [Cybersecurity Incident Expert System](projects/cybersecurity-incident-expert-system) | Rule-based incident assessment using a forward-chaining inference engine | Python, Streamlit, SQLite, JSON |
 | [Banking Transaction Security Pipeline](projects/banking-transaction-security) | Sender-to-receiver multi-layer cryptographic pipeline | Python, AES, RSA, SHA-256, digital signatures |
