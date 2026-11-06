@@ -36,7 +36,6 @@ See [INTERNSHIP.md](INTERNSHIP.md) for the 15-day Python Developer internship su
 .
 ├── README.md
 ├── INTERNSHIP.md
-├── PUBLISH_CHECKLIST.md
 ├── .gitignore
 └── projects/
     ├── taskflow/
