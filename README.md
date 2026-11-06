@@ -36,7 +36,6 @@ See [INTERNSHIP.md](HarshilChhatrala/INTERNSHIP.md) for the 15-day Python Develo
 .
 ├── README.md
 ├── INTERNSHIP.md
-├── .gitignore
 └── projects/
     ├── taskflow/
     ├── mygit/
