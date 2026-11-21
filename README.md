@@ -51,14 +51,6 @@ See [INTERNSHIP.md](HarshilChhatrala/INTERNSHIP.md) for the 15-day Python Develo
 
 Each project folder has its own README and setup instructions. Install dependencies separately for each project in its own virtual environment.
 
-## Responsible Publishing
-
-- Do not upload passwords, API keys, tokens, private keys, certificates, personal data, or confidential internship material.
-- The banking-security pipeline and Traffic Pulse are academic prototypes, not production systems.
-- Review the stock dataset's source and license before publishing it.
-- Add screenshots and demo outputs that you have permission to share.
-- Keep project descriptions accurate: distinguish implemented features from future improvements.
-
 ## Suggested GitHub Topics
 
 `python` `software-development` `flask` `backend-development` `cybersecurity` `machine-learning` `compiler-design` `computer-engineering`
