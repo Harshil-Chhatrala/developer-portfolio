@@ -50,7 +50,3 @@ See [INTERNSHIP.md](HarshilChhatrala/INTERNSHIP.md) for the 15-day Python Develo
 ## Running Projects
 
 Each project folder has its own README and setup instructions. Install dependencies separately for each project in its own virtual environment.
-
-## Suggested GitHub Topics
-
-`python` `software-development` `flask` `backend-development` `cybersecurity` `machine-learning` `compiler-design` `computer-engineering`
